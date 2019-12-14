@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
@@ -46,6 +47,7 @@ public class ConsoleTabController {
         try {
             missionInfo = service.getMissionInfo(selectedItem); 
             getLog().appendText("Sucessfully retrieved mission info for " + selectedItem + "\n");
+            setTabText().setText("ksksk");
         } catch (IOException exception) {
             exception.printStackTrace (stackTraceWriter);
             getLog().appendText(stackTraceWriter.toString() + "\n");
@@ -64,5 +66,9 @@ public class ConsoleTabController {
     
     private TextArea getLog(){
         return mainController.getVisualLog(); 
+    }
+    
+    public Tab setTabText(){
+        return mainController.setTabText();
     }
 }
